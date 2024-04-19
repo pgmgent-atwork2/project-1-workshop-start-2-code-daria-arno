@@ -1,10 +1,10 @@
-//canvas
+//define the canvas size
 let canvas;
 let canvasWidth = 800;
 let canvasHeight = 600;
 let ctx;
 
-//character
+// define the character size
 let characterWidth = 55; // width/height ratio = 408/228 = 17/12
 let characterHeight = 55;
 let characterImg;
@@ -16,11 +16,11 @@ let characterGameOverImg;
 let characterGameOverWidth = 350;
 let characterGameOverHeight = 370;
 
-//starting positions of the character
+//starting position of the character (on x- and y-axis )
 let characterX = canvasWidth / 8;
 let characterY = canvasHeight / 2;
 
-//starting positions of the game over character
+//starting position of the game over image
 let characterGameOverX = canvasWidth / 2;
 let characterGameOverY = canvasHeight / 2;
 
@@ -43,7 +43,7 @@ let gameOverCharacter = {
 };
 
 //pillars
-let pillarArray = [];
+let pillarArray = []; // in this array all the pillars will come
 let pillarWidth = 120; //width/height ratio = 384/3072 = 1/8
 let pillarHeight = 512;
 let pillarX = canvasWidth;
@@ -53,23 +53,28 @@ let topPillarImg;
 let bottomPillarImg;
 
 //physics
-let velocityX = -6; //pillars moving left speed
+let velocityX = -6; //pillars moving to the left speed
 let velocityY = 0; //character jump speed
 let gravity = 0.4; //character falling speed
 
-let gameOver = true;
-let score = 0;
+// Game state variables
+let gameOver = true; // A boolean indicating whether the game is over
+let score = 0; // The player's current score
 
+// This function will run when the web page finishes loading
 window.onload = () => {
   let scoreAudio = document.getElementById("scoreAudio");
   let gameOverAudio = document.getElementById("gameOverAudio");
 
+  // get a reference to the canvas element and set its dimensions
   canvas = document.getElementById("canvas");
   canvas.height = canvasHeight;
   canvas.width = canvasWidth;
+
+  // get a 2D rendering context from the canvas,
   ctx = canvas.getContext("2d"); //used for drawing on the canvas
 
-  //load images
+  // create a new image for the character and define a function to draw the image when loaded
   characterImg = new Image();
   characterImg.src = currentCharHappy;
   characterImg.onload = () => {
@@ -82,14 +87,19 @@ window.onload = () => {
     );
   };
 
+  // create new images for the top and bottom pillars
   topPillarImg = new Image();
   topPillarImg.src = "assets/imgs/topPillar.png";
-
   bottomPillarImg = new Image();
   bottomPillarImg.src = "assets/imgs/bottomPillar.png";
 
+  // rrequest the browser to call the `update` function (this will be added later)
   requestAnimationFrame(update);
+
+  // set an interval to call the `placePillar` function
   setInterval(placePillar, 1500); //every 1.5 seconds
+
+  // an event listener to call the `moveCharacter` function when a key is pressed (this function will be added later)
   document.addEventListener("keydown", moveCharacter);
 };
 
@@ -155,8 +165,6 @@ update = () => {
     pillar.x += velocityX;
     ctx.drawImage(pillar.img, pillar.x, pillar.y, pillar.width, pillar.height);
 
-    // audios
-
     if (!pillar.passed && character.x > pillar.x + pillar.width) {
       score += 0.5; //0.5 because there are 2 pillars! so 0.5*2 = 1, 1 for each set of pillars
       velocityX -= 0.3; //increase speed of pillars
@@ -166,8 +174,7 @@ update = () => {
 
       // stop playing score audio after 1.2s
       setTimeout(() => {
-        scoreAudio.pause();
-        scoreAudio.currentTime = 0;
+        scoreAudio.load();
       }, 1200);
     }
 
@@ -216,16 +223,21 @@ update = () => {
   }
 };
 
+// function to spawn the pillars in game
 placePillar = () => {
+  // if the game is over, stop placing them
   if (gameOver) {
     return;
   }
 
-  //
+  // calculate a random Y position for the top pillar
   let randompillarY =
     pillarY - pillarHeight / 4 - Math.random() * (pillarHeight / 2);
+
+  // the space between top and bottom pillar
   let openingSpace = canvas.height / 4;
 
+  // define all the top pillar properties
   let topPillar = {
     img: topPillarImg,
     x: pillarX,
@@ -234,8 +246,10 @@ placePillar = () => {
     height: pillarHeight,
     passed: false,
   };
+  // add the top pillar to the array of pillars
   pillarArray.push(topPillar);
 
+  // define all the bottom pillar properties
   let bottomPillar = {
     img: bottomPillarImg,
     x: pillarX,
@@ -244,6 +258,8 @@ placePillar = () => {
     height: pillarHeight,
     passed: false,
   };
+
+  // add pillar to array
   pillarArray.push(bottomPillar);
 };
 
@@ -261,9 +277,7 @@ moveCharacter = (e) => {
       score = 0; // reset score
       velocityX = -6; // reset speed of pillars
       gameOver = false; // put gameOver to false
-      // reset game over audio
-      gameOverAudio.pause();
-      gameOverAudio.currentTime = 0;
+      gameOverAudio.load(); // reset game over audio
       characterImg.src = currentCharHappy; // character back to happy
     }
   }
