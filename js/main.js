@@ -200,7 +200,7 @@ update = () => {
     ctx.fillText(textString, canvas.width / 2 - textWidth / 2, 100);
 
     characterGameOverImg = new Image();
-    characterGameOverImg.src = "assets/imgs/gameOver.png";
+    characterGameOverImg.src = currentCharSad;
     characterGameOverImg.onload = () => {
       ctx.drawImage(
         characterGameOverImg,
