@@ -1,11 +1,16 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/Y748gS5A)
+
 # Flappy Frederick
 
-Welcome to *Flappy Frederick*, an engaging and fun arcade-style game inspired by the classic Flappy Bird. In this game, you help Frederick, our unique bird character, navigate through a series of challenging obstacles.
+Welcome to _Flappy Frederick_, an engaging and fun arcade-style game inspired by the classic Flappy Bird. In this game, you help Frederick, our unique bird character, navigate through a series of challenging obstacles.
+
+## Demo
+
+[demo](https://pgmgent-atwork2.github.io/project-1-workshop-start-2-code-daria-arno/)
 
 ## Game Overview
 
-In *Flappy Frederick*, players control Frederick by pressing the space bar or the arrow up key to make him jump up and fly. The objective is to fly between columns of green pipes without colliding with them. As you pass through each set of pipes, sounds play to enhance the experience, and the game becomes progressively more challenging.
+In _Flappy Frederick_, players control Frederick by pressing the space bar or the arrow up key to make him jump up and fly. The objective is to fly between columns of green pipes without colliding with them. As you pass through each set of pipes, sounds play to enhance the experience, and the game becomes progressively more challenging.
 
 ## Features
 
@@ -30,7 +35,8 @@ In *Flappy Frederick*, players control Frederick by pressing the space bar or th
 - Game Design & Development: [Daria & Arno]
 - Sound Effects: Obtained from [Myinstants.com](https://www.myinstants.com/en/index/be/)
 
-Enjoy playing *Flappy Frederick*, and try to beat your high score!
+Enjoy playing _Flappy Frederick_, and try to beat your high score!
 
 ## FigJam file
+
 [FigJam](https://www.figma.com/file/YUZgb4TMkcO7MbejXxJv28/Workshop?type=whiteboard&node-id=0%3A1&t=e8iD4B19tQIGAXVn-1)
