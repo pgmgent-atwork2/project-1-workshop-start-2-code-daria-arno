@@ -1,23 +1,22 @@
+/* centers the entire page */
 body {
-    font-family:'Courier New', Courier, monospace;
-    text-align: center;
+  text-align: center;
+}
+/* background image for the canvas */
+#canvas {
+  background-image: url("../assets/imgs/bg.png");
 }
 
 .characters {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 .characters button:hover {
-    cursor: pointer;
-    transform: scale(1.1);
+  cursor: pointer;
+  transform: scale(1.1);
 }
 .characters img {
-    max-height: 5rem;
-}
-
-#canvas {
-    /* background-color: skyblue; */
-    background-image: url("../assets/imgs/bg.png");
+  max-height: 5rem;
 }
