@@ -1,11 +1,11 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/Y748gS5A)
-# Frederick Bird
+# Flappy Frederick
 
-Welcome to *Frederick Bird*, an engaging and fun arcade-style game inspired by the classic Flappy Bird. In this game, you help Frederick, our unique bird character, navigate through a series of challenging obstacles.
+Welcome to *Flappy Frederick*, an engaging and fun arcade-style game inspired by the classic Flappy Bird. In this game, you help Frederick, our unique bird character, navigate through a series of challenging obstacles.
 
 ## Game Overview
 
-In *Frederick Bird*, players control Frederick by pressing the space bar or the arrow up key to make him jump up and fly. The objective is to fly between columns of green pipes without colliding with them. As you pass through each set of pipes, sounds play to enhance the experience, and the game becomes progressively more challenging.
+In *Flappy Frederick*, players control Frederick by pressing the space bar or the arrow up key to make him jump up and fly. The objective is to fly between columns of green pipes without colliding with them. As you pass through each set of pipes, sounds play to enhance the experience, and the game becomes progressively more challenging.
 
 ## Features
 
@@ -28,4 +28,4 @@ In *Frederick Bird*, players control Frederick by pressing the space bar or the 
 - Game Design & Development: [Daria & Arno]
 - Sound Effects: Obtained from [Myinstants.com](https://www.myinstants.com/en/index/be/)
 
-Enjoy playing *Frederick Bird*, and try to beat your high score!
+Enjoy playing *Flappy Frederick*, and try to beat your high score!
