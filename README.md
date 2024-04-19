@@ -10,6 +10,7 @@ In *Flappy Frederick*, players control Frederick by pressing the space bar or th
 ## Features
 
 - **Dynamic Gameplay:** Each session provides a unique experience as the distance between the pipes is randomized.
+- **Character Selection:** Choose from three different characters to play as. Each character has a unique look and personality, adding variety to your gaming experience.
 - **Scoring System:** Scores are awarded for each pipe Frederick successfully navigates through. Your score is prominently displayed in the top-left corner of the screen.
 - **Sound Effects:** Distinctive sounds are triggered as Frederick passes through the pipes and if he happens to hit an obstacle.
 - **Character Design:** Frederick is not just any bird; he has a very distinctive appearance that adds a humorous touch to the game.
@@ -17,11 +18,12 @@ In *Flappy Frederick*, players control Frederick by pressing the space bar or th
 ## How to Play
 
 1. **Starting the Game:** Open the `index.html` file in any modern web browser to start the game.
-2. **Game Controls:**
+2. **Selecting a Character:** At the start screen, choose from one of the three available characters to control.
+3. **Game Controls:**
    - **Press Space or the arrow up key** to make Frederick jump up.
    - Navigate through the gaps in the pipes.
    - Avoid touching the pipes or the ground.
-3. **Restarting the Game:** If you collide with a pipe, the game will end. Press the space bar or the arrow up key to begin a new game.
+4. **Restarting the Game:** If you collide with a pipe, the game will end. Press the space bar or the arrow up key to begin a new game.
 
 ## Credits
 
