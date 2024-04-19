@@ -29,3 +29,6 @@ In *Flappy Frederick*, players control Frederick by pressing the space bar or th
 - Sound Effects: Obtained from [Myinstants.com](https://www.myinstants.com/en/index/be/)
 
 Enjoy playing *Flappy Frederick*, and try to beat your high score!
+
+## FigJam file
+[FigJam](https://www.figma.com/file/YUZgb4TMkcO7MbejXxJv28/Workshop?type=whiteboard&node-id=0%3A1&t=e8iD4B19tQIGAXVn-1)
