@@ -69,7 +69,7 @@ window.onload = () => {
 
   //load images
   characterImg = new Image();
-  characterImg.src = "/assets/imgs/happy.png";
+  characterImg.src = "assets/imgs/happy.png";
   characterImg.onload = () => {
     ctx.drawImage(
       characterImg,
@@ -81,10 +81,10 @@ window.onload = () => {
   };
 
   topPillarImg = new Image();
-  topPillarImg.src = "/assets/imgs/topPillar.png";
+  topPillarImg.src = "assets/imgs/topPillar.png";
 
   bottomPillarImg = new Image();
-  bottomPillarImg.src = "/assets/imgs/bottomPillar.png";
+  bottomPillarImg.src = "assets/imgs/bottomPillar.png";
 
   requestAnimationFrame(update);
   setInterval(placePillar, 1500); //every 1.5 seconds
@@ -148,7 +148,7 @@ update = () => {
     }
 
     if (detectCollision(character, pillar)) {
-      characterImg.src = "/assets/imgs/sad.png"; // when collision change character to something else
+      characterImg.src = "assets/imgs/sad.png"; // when collision change character to something else
       gameOver = true;
       gameOverAudio.play();
     }
@@ -178,7 +178,7 @@ update = () => {
     ctx.fillText(textString, canvas.width / 2 - textWidth / 2, 100);
 
     characterGameOverImg = new Image();
-    characterGameOverImg.src = "/assets/imgs/gameOver.png";
+    characterGameOverImg.src = "assets/imgs/gameOver.png";
     characterGameOverImg.onload = () => {
       ctx.drawImage(
         characterGameOverImg,
@@ -237,14 +237,14 @@ moveCharacter = (e) => {
       velocityX = -6; // reset speed of pillars
       gameOver = false; // put gameOver to false
       gameOverAudio.load();
-      characterImg.src = "/assets/imgs/happy.png"; // character back to happy
+      characterImg.src = "assets/imgs/happy.png"; // character back to happy
     }
   }
 };
 
 // is falling detector
 rotateCharacter = () => {
-  characterImg.src = "/assets/imgs/sad.png";
+  characterImg.src = "assets/imgs/sad.png";
 };
 
 detectCollision = (a, b) => {
