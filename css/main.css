@@ -7,16 +7,17 @@ body {
   background-image: url("../assets/imgs/bg.png");
 }
 
+/* css for character selection */
 .characters {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  display: flex; /* place the characters next to each other */
+  justify-content: center; /* center the character div */
+  align-items: center; /* align the items in the center */
+  gap: 1rem; /* adds a gap in between the characters */
 }
 .characters button:hover {
-  cursor: pointer;
-  transform: scale(1.1);
+  cursor: pointer; /* give the cursor a pointer when hovering over the buttons */
+  transform: scale(1.1); /* make the buttons bigger when hovering over them */
 }
 .characters img {
-  max-height: 5rem;
+  max-height: 5rem; /* give the images a max height */
 }
