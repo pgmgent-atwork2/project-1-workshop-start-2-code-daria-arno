@@ -10,7 +10,19 @@ Create a folder structure that looks similar to this:
 - css (folder)
   - main.css
 - assets (folder)
-  - imgs
+  - imgs (folder)
+    - bg.png
+    - bottomPillar.png
+    - character_1_happy.png
+    - character_1_sad.png
+    - character_2_happy.png
+    - character_2_sad.png
+    - character_3_happy.png
+    - character_3_sad.png
+    - topPillar.png
+  - sounds (folder)
+    - coin.mp3
+    - game-over.mp3
 
 ## HTML
 
@@ -37,6 +49,33 @@ Now add a canvas, we will need this to do draw graphics on the web page. Put the
 <canvas id="canvas"></canvas>
 ```
 
+Add the audio tags with the link to the audio files above the canvas
+
+```html
+<audio id="scoreAudio" src="assets/sounds/coin.mp3" type="audio/mp3"></audio>
+<audio
+  id="gameOverAudio"
+  src="assets/sounds/game-over.mp3"
+  type="audio/mp3"
+></audio>
+```
+
+Lastly add the selection buttons for the characters underneath the canvas
+
+```html
+<div class="characters">
+  <button id="char1">
+    <img src="assets/imgs/character_1_happy.png" alt="character 1" />
+  </button>
+  <button id="char2">
+    <img src="assets/imgs/character_2_happy.png" alt="character 2" />
+  </button>
+  <button id="char3">
+    <img src="assets/imgs/character_3_happy.png" alt="character 3" />
+  </button>
+</div>
+```
+
 ## CSS
 
 ```css
@@ -48,11 +87,27 @@ body {
 #canvas {
   background-image: url("../assets/imgs/bg.png");
 }
+/* css for character selection */
+.characters {
+  display: flex; /* place the characters next to each other */
+  justify-content: center; /* center the character div */
+  align-items: center; /* align the items in the center */
+  gap: 1rem; /* adds a gap in between the characters */
+}
+.characters button:hover {
+  cursor: pointer; /* give the cursor a pointer when hovering over the buttons */
+  transform: scale(1.1); /* make the buttons bigger when hovering over them */
+}
+.characters img {
+  max-height: 5rem; /* give the images a max height */
+}
 ```
 
 ## JS
 
-### This is the foundation of the javascript, read the comments for more understanding:
+### This is the foundation of the javascript, all the variables:
+
+Read the comments for more understanding.
 
 ```js
 //define the canvas size
@@ -117,7 +172,15 @@ let gravity = 0.4; //character falling speed
 // Game state variables
 let gameOver = true; // A boolean indicating whether the game is over
 let score = 0; // The player's current score
+```
 
+---
+
+Congratulations if you made it this far, the foundation of the script has been made, now a few more functions.
+
+### When web page finishes loading:
+
+```js
 // This function will run when the web page finishes loading
 window.onload = () => {
   let scoreAudio = document.getElementById("scoreAudio");
@@ -161,22 +224,172 @@ window.onload = () => {
 };
 ```
 
----
-
----
-
-Congratulations if you made it this far, the foundation of the script has been made, now a few more functions.
-
 ### This is the update function which is used to constantly update the canvas:
 
 ```js
+update = () => {
+  // character selection
+  const char1 = document.getElementById("char1");
+  const char2 = document.getElementById("char2");
+  const char3 = document.getElementById("char3");
 
+  char1.addEventListener("click", () => {
+    currentCharHappy = "assets/imgs/character_1_happy.png";
+    currentCharSad = "assets/imgs/character_1_sad.png";
+  });
+
+  char2.addEventListener("click", () => {
+    currentCharHappy = "assets/imgs/character_2_happy.png";
+    currentCharSad = "assets/imgs/character_2_sad.png";
+  });
+
+  char3.addEventListener("click", () => {
+    currentCharHappy = "assets/imgs/character_3_happy.png";
+    currentCharSad = "assets/imgs/character_3_sad.png";
+  });
+
+  requestAnimationFrame(update);
+  if (gameOver) {
+    return;
+  }
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  //character
+  velocityY += gravity; // give the Y velocity gravity so character does not just float upwards when jumping
+  character.y = Math.max(character.y + velocityY); //apply gravity to current character.y,
+
+  if (velocityY >= 0) {
+    // if the character is falling
+    character.rotation += 0.01; // increase the rotation
+  }
+
+  ctx.save(); // save the current state of the context
+  ctx.translate(
+    character.x + character.width / 2,
+    character.y + character.height / 2
+  ); // move the origin of the context to the center of the character
+  ctx.rotate(character.rotation); // rotate the context
+  ctx.drawImage(
+    characterImg,
+    -character.width / 2,
+    -character.height / 2,
+    character.width,
+    character.height
+  ); // draw the character centered on the new origin
+  ctx.restore(); // restore the context to its previous state
+
+  if (character.y > canvas.height) {
+    gameOver = true;
+    gameOverAudio.play(); // start playing game over audio when going out of bounds
+  }
+
+  //pillars
+  for (let i = 0; i < pillarArray.length; i++) {
+    let pillar = pillarArray[i];
+    pillar.x += velocityX;
+    ctx.drawImage(pillar.img, pillar.x, pillar.y, pillar.width, pillar.height);
+
+    if (!pillar.passed && character.x > pillar.x + pillar.width) {
+      score += 0.5; //0.5 because there are 2 pillars! so 0.5*2 = 1, 1 for each set of pillars
+      velocityX -= 0.3; //increase speed of pillars
+      pillar.passed = true;
+
+      scoreAudio.play(); // play score audio when going through pillar
+
+      // stop playing score audio after 1.2s
+      setTimeout(() => {
+        scoreAudio.load();
+      }, 1200);
+    }
+
+    if (detectCollision(character, pillar)) {
+      characterImg.src = currentCharSad; // when collision change character to something else
+      gameOver = true;
+      gameOverAudio.play(); // start playing game over sound when hitting pillar
+    }
+  }
+
+  //clear pillars
+  while (pillarArray.length > 0 && pillarArray[0].x < -pillarWidth) {
+    pillarArray.shift(); //removes first element from the array
+  }
+
+  //score
+  ctx.fillStyle = "white";
+  ctx.font = "45px sans-serif";
+  ctx.fillText(score, 5, 45);
+
+  if (gameOver) {
+    // Create gradient
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+    gradient.addColorStop("0", "magenta");
+    gradient.addColorStop("0.5", "blue");
+    gradient.addColorStop("1.0", "red");
+
+    // Fill with gradient
+    ctx.fillStyle = gradient; // add gradient to game over text
+    let textString = "GAME OVER";
+    let textWidth = ctx.measureText(textString).width;
+    ctx.fillText(textString, canvas.width / 2 - textWidth / 2, 100);
+
+    // add game over image to center of the screen
+    characterGameOverImg = new Image();
+    characterGameOverImg.src = currentCharSad;
+    characterGameOverImg.onload = () => {
+      ctx.drawImage(
+        characterGameOverImg,
+        250,
+        150,
+        gameOverCharacter.width,
+        gameOverCharacter.height
+      );
+    };
+  }
+};
 ```
 
 ### The pillar placing function:
 
 ```js
+// function to spawn the pillars in game
+placePillar = () => {
+  // if the game is over, stop placing them
+  if (gameOver) {
+    return;
+  }
 
+  // calculate a random Y position for the top pillar
+  let randompillarY =
+    pillarY - pillarHeight / 4 - Math.random() * (pillarHeight / 2);
+
+  // the space between top and bottom pillar
+  let openingSpace = canvas.height / 4;
+
+  // define all the top pillar properties
+  let topPillar = {
+    img: topPillarImg,
+    x: pillarX,
+    y: randompillarY,
+    width: pillarWidth,
+    height: pillarHeight,
+    passed: false,
+  };
+  // add the top pillar to the array of pillars
+  pillarArray.push(topPillar);
+
+  // define all the bottom pillar properties
+  let bottomPillar = {
+    img: bottomPillarImg,
+    x: pillarX,
+    y: randompillarY + pillarHeight + openingSpace,
+    width: pillarWidth,
+    height: pillarHeight,
+    passed: false,
+  };
+
+  // add pillar to array
+  pillarArray.push(bottomPillar);
+};
 ```
 
 Now that pillars can randomly spawn, we can at last add perhaps the most important, but easiest part to make of the game.
@@ -184,11 +397,36 @@ Now that pillars can randomly spawn, we can at last add perhaps the most importa
 ### The user input for jumping.
 
 ```js
+moveCharacter = (e) => {
+  // keys used for jumping
+  if (e.code == "Space" || e.code == "ArrowUp") {
+    //jump
+    velocityY = -6;
+    character.rotation = 0; // reset the rotation
 
+    //reset game
+    if (gameOver) {
+      character.y = characterY; // character back to starting position
+      pillarArray = []; // empty array of pillars
+      score = 0; // reset score
+      velocityX = -6; // reset speed of pillars
+      gameOver = false; // put gameOver to false
+      gameOverAudio.load(); // reset game over audio
+      characterImg.src = currentCharHappy; // character back to happy
+    }
+  }
+};
 ```
 
 ### Detect any collisions
 
 ```js
-
+detectCollision = (a, b) => {
+  return (
+    a.x < b.x + b.width && //a's top left corner doesn't reach b's top right corner
+    a.x + a.width > b.x && //a's top right corner passes b's top left corner
+    a.y < b.y + b.height && //a's top left corner doesn't reach b's bottom left corner
+    a.y + a.height > b.y //a's bottom left corner passes b's top left corner
+  );
+};
 ```
