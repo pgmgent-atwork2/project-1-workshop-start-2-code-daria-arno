@@ -166,7 +166,8 @@ update = () => {
 
       // stop playing score audio after 1.2s
       setTimeout(() => {
-        scoreAudio.load(); 
+        scoreAudio.pause();
+        scoreAudio.currentTime = 0;
       }, 1200);
     }
 
@@ -260,7 +261,9 @@ moveCharacter = (e) => {
       score = 0; // reset score
       velocityX = -6; // reset speed of pillars
       gameOver = false; // put gameOver to false
-      gameOverAudio.load(); // reset game over audio
+      // reset game over audio
+      gameOverAudio.pause();
+      gameOverAudio.currentTime = 0;
       characterImg.src = currentCharHappy; // character back to happy
     }
   }
