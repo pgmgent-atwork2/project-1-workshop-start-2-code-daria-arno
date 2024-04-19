@@ -146,7 +146,7 @@ update = () => {
 
   if (character.y > canvas.height) {
     gameOver = true;
-    gameOverAudio.play();
+    gameOverAudio.play(); // start playing game over audio when going out of bounds
   }
 
   //pillars
@@ -162,17 +162,18 @@ update = () => {
       velocityX -= 0.3; //increase speed of pillars
       pillar.passed = true;
 
-      scoreAudio.play();
+      scoreAudio.play(); // play score audio when going through pillar
 
+      // stop playing score audio after 1.2s
       setTimeout(() => {
-        scoreAudio.load();
+        scoreAudio.load(); 
       }, 1200);
     }
 
     if (detectCollision(character, pillar)) {
       characterImg.src = currentCharSad; // when collision change character to something else
       gameOver = true;
-      gameOverAudio.play();
+      gameOverAudio.play(); // start playing game over sound when hitting pillar
     }
   }
 
@@ -194,11 +195,12 @@ update = () => {
     gradient.addColorStop("1.0", "red");
 
     // Fill with gradient
-    ctx.fillStyle = gradient;
+    ctx.fillStyle = gradient; // add gradient to game over text
     let textString = "GAME OVER";
     let textWidth = ctx.measureText(textString).width;
     ctx.fillText(textString, canvas.width / 2 - textWidth / 2, 100);
 
+    // add game over image to center of the screen
     characterGameOverImg = new Image();
     characterGameOverImg.src = currentCharSad;
     characterGameOverImg.onload = () => {
@@ -258,7 +260,7 @@ moveCharacter = (e) => {
       score = 0; // reset score
       velocityX = -6; // reset speed of pillars
       gameOver = false; // put gameOver to false
-      gameOverAudio.load();
+      gameOverAudio.load(); // reset game over audio
       characterImg.src = currentCharHappy; // character back to happy
     }
   }
