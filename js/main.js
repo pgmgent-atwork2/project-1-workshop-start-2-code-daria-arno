@@ -8,6 +8,8 @@ let ctx;
 let characterWidth = 55; // width/height ratio = 408/228 = 17/12
 let characterHeight = 55;
 let characterImg;
+currentCharHappy = "assets/imgs/character_1_happy.png";
+currentCharSad = "assets/imgs/character_1_sad.png";
 
 // game over character
 let characterGameOverImg;
@@ -69,7 +71,7 @@ window.onload = () => {
 
   //load images
   characterImg = new Image();
-  characterImg.src = "assets/imgs/happy.png";
+  characterImg.src = currentCharHappy;
   characterImg.onload = () => {
     ctx.drawImage(
       characterImg,
@@ -92,6 +94,26 @@ window.onload = () => {
 };
 
 update = () => {
+  // character selection
+  const char1 = document.getElementById("char1");
+  const char2 = document.getElementById("char2");
+  const char3 = document.getElementById("char3");
+
+  char1.addEventListener("click", () => {
+    currentCharHappy = "assets/imgs/character_1_happy.png";
+    currentCharSad = "assets/imgs/character_1_sad.png";
+  });
+
+  char2.addEventListener("click", () => {
+    currentCharHappy = "assets/imgs/character_2_happy.png";
+    currentCharSad = "assets/imgs/character_2_sad.png";
+  });
+
+  char3.addEventListener("click", () => {
+    currentCharHappy = "assets/imgs/character_3_happy.png";
+    currentCharSad = "assets/imgs/character_3_sad.png";
+  });
+
   requestAnimationFrame(update);
   if (gameOver) {
     return;
@@ -148,7 +170,7 @@ update = () => {
     }
 
     if (detectCollision(character, pillar)) {
-      characterImg.src = "assets/imgs/sad.png"; // when collision change character to something else
+      characterImg.src = currentCharSad; // when collision change character to something else
       gameOver = true;
       gameOverAudio.play();
     }
@@ -237,14 +259,9 @@ moveCharacter = (e) => {
       velocityX = -6; // reset speed of pillars
       gameOver = false; // put gameOver to false
       gameOverAudio.load();
-      characterImg.src = "assets/imgs/happy.png"; // character back to happy
+      characterImg.src = currentCharHappy; // character back to happy
     }
   }
-};
-
-// is falling detector
-rotateCharacter = () => {
-  characterImg.src = "assets/imgs/sad.png";
 };
 
 detectCollision = (a, b) => {
