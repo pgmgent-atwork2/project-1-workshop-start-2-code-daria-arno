@@ -98,7 +98,7 @@ window.onload = () => {
   bottomPillarImg = new Image();
   bottomPillarImg.src = "assets/imgs/bottomPillar.png";
 
-  // rrequest the browser to call the `update` function (this will be added later)
+  // request the browser to call the `update` function (this will be added later)
   requestAnimationFrame(update);
 
   // set an interval to call the `placePillar` function
@@ -289,11 +289,11 @@ moveCharacter = (e) => {
   }
 };
 
-detectCollision = (a, b) => {
+detectCollision = (obj1, obj2) => {
   return (
-    a.x < b.x + b.width && //a's top left corner doesn't reach b's top right corner
-    a.x + a.width > b.x && //a's top right corner passes b's top left corner
-    a.y < b.y + b.height && //a's top left corner doesn't reach b's bottom left corner
-    a.y + a.height > b.y //a's bottom left corner passes b's top left corner
+    obj1.x < obj2.x + obj2.width && //obj1's top left corner doesn't reach obj2's top right corner
+    obj1.x + obj1.width > obj2.x && //obj1's top right corner passes obj2's top left corner
+    obj1.y < obj2.y + obj2.height && //obj1's top left corner doesn't reach obj2's bottom left corner
+    obj1.y + obj1.height > obj2.y //obj1's bottom left corner passes obj2's top left corner
   );
 };
