@@ -2,7 +2,7 @@
 
 ## Folder Structure
 
-Create a folder structure that looks similar to this:
+Create a folder structure that looks similar to this and download our images and sounds, or add your own:
 
 - index.html
 - js (folder)
@@ -114,14 +114,14 @@ Read the comments for more understanding.
 let canvas;
 let canvasWidth = 800;
 let canvasHeight = 600;
-let ctx;
+let ctx; // this will be the context of the canvas (2D)
 
 // define the character size
-let characterWidth = 55; // width/height ratio = 408/228 = 17/12
+let characterWidth = 55;
 let characterHeight = 55;
-let characterImg;
-currentCharHappy = "assets/imgs/character_1_happy.png";
-currentCharSad = "assets/imgs/character_1_sad.png";
+let characterImg; // this will be the image of the character, but defined later
+currentCharHappy = "assets/imgs/character_1_happy.png"; //this is the default character (happy)
+currentCharSad = "assets/imgs/character_1_sad.png"; //this is the default character (sad)
 
 // game over character
 let characterGameOverImg;
@@ -138,10 +138,13 @@ let characterGameOverY = canvasHeight / 2;
 
 // properties of the character
 let character = {
+  // x and y position of the character
   x: characterX,
   y: characterY,
+  // size of the character
   width: characterWidth,
   height: characterHeight,
+  // rotation is used for the character to look like it's flying
   rotation: 0,
 };
 
@@ -156,10 +159,12 @@ let gameOverCharacter = {
 
 //pillars
 let pillarArray = []; // in this array all the pillars will come
-let pillarWidth = 120; //width/height ratio = 384/3072 = 1/8
+// size of the pillars
+let pillarWidth = 120;
 let pillarHeight = 512;
-let pillarX = canvasWidth;
-let pillarY = 0;
+
+let pillarX = canvasWidth; // right of the canvas
+let pillarY = 0; // top of the canvas
 
 let topPillarImg;
 let bottomPillarImg;
@@ -196,7 +201,7 @@ window.onload = () => {
 
   // create a new image for the character and define a function to draw the image when loaded
   characterImg = new Image();
-  characterImg.src = currentCharHappy;
+  characterImg.src = currentCharHappy; // set the source of the image
   characterImg.onload = () => {
     ctx.drawImage(
       characterImg,
@@ -233,6 +238,7 @@ update = () => {
   const char2 = document.getElementById("char2");
   const char3 = document.getElementById("char3");
 
+  // add event listeners to the character selection, this will change the character image on click
   char1.addEventListener("click", () => {
     currentCharHappy = "assets/imgs/character_1_happy.png";
     currentCharSad = "assets/imgs/character_1_sad.png";
@@ -320,7 +326,7 @@ update = () => {
   ctx.fillText(score, 5, 45);
 
   if (gameOver) {
-    // Create gradient
+    // create gradient for the "game over" text
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
     gradient.addColorStop("0", "magenta");
     gradient.addColorStop("0.5", "blue");
@@ -430,3 +436,9 @@ detectCollision = (a, b) => {
   );
 };
 ```
+
+### Congratulations, you finished the workshop!
+Now try opening your page by using the live server extension, or open the index.html in your browser to play your new game.
+
+
+![Flappy Teachers](/assets/imgs/tutorial_example.gif)
