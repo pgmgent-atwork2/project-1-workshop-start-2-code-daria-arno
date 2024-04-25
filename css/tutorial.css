@@ -1,0 +1,160 @@
+@font-face {
+  font-family: "sharp_grotesk_bold_25regular";
+  src: url("../fonts/sharpgroteskbold25-regular-webfont.woff2") format("woff2"),
+    url("../fonts/sharpgroteskbold25-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sharp_grotesk_book_20regular";
+  src: url("../fonts/sharpgroteskbook20-regular-webfont.woff2") format("woff2"),
+    url("../fonts/sharpgroteskbook20-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sharp_grotesk_medium_20Rg";
+  src: url("../fonts/sharpgroteskmedium20-regular-webfont.woff2") format("woff2"),
+    url("../fonts/sharpgroteskmedium20-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sharp_grotesk_smbold_08Rg";
+  src: url("../fonts/sharpgrotesksmbold08-regular-webfont.woff2") format("woff2"),
+    url("../fonts/sharpgrotesksmbold08-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+  font-family: "sharp_grotesk_medium_20Rg", sans-serif;
+  font-size: 0.85em;
+  line-height: 4em;
+  letter-spacing: 0.1em;
+  /* Scrollbar altijd aanzetten zodat de pagina niet verspringt */
+}
+
+body {
+  /* min-height: 100%; */
+  position: relative;
+  color: #fff;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to right bottom, #f05a61, #ffda31);
+}
+
+.workshop-wrapper {
+  /* text-align: center; */
+  margin-top: 20px;
+}
+
+.workshop-wrapper img.screenshot {
+  max-width: 100%;
+  border: 0.5px solid gray;
+  margin-bottom: 1rem;
+}
+
+.workshop-wrapper img.logo {
+  max-width: 150px;
+  float: right;
+  display: block;
+  background-color: white;
+  margin-bottom: 2rem;
+}
+.imgresult {
+  margin: 20px;
+  width: 50%;
+  height: 50%;
+}
+
+.workshop-wrapper img.sc {
+  max-width: 600px;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  margin-top: 20px;
+  color: #f05a61;
+  font-family: "sharp_grotesk_bold_25regular", sans-serif;
+  font-size: 2em;
+  line-height: 1em;
+  letter-spacing: 0.05em;
+}
+
+code {
+  /* padding: 5px; */
+  color: rgb(238, 197, 255);
+  font-weight: 700;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+code::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  bottom: -4px;
+  right: -4px;
+  background-color: #2a2a2ae5;
+}
+
+code.block {
+  display: block;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+
+iframe {
+  margin: 2rem;
+  max-height: 500px !important;
+}
+
+.table.table-order > tbody > tr > *,
+.table.table-order > tfoot > tr > * {
+  vertical-align: middle;
+}
+
+.content-block {
+  margin-bottom: 70px;
+  margin-top: 40px;
+}
+footer {
+  text-align: center;
+}
+span.highlight {
+  color: #bd1313;
+  font-weight: 700;
+}
+
+header {
+  text-align: center;
+  background-color: white;
+  padding: 2rem;
+}
+
+.htmluitleg {
+  margin-bottom: 10px;
+}
