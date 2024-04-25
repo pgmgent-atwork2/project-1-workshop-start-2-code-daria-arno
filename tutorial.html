@@ -1,367 +1,358 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Start To Code</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <!-- Eigen CSS-->
-    <link rel="stylesheet" href="css/tutorial.css">
-</head>
+    <link rel="stylesheet" href="css/tutorial.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>NERDLAND FESTIVAL - CODE A SOUNDBOARD</h1>
-
+      <h1>Flappy Teachers</h1>
     </header>
 
     <div class="text-center">
-        <img src="https://nerdland.be/img/logo.png" alt="" class="center">
+      <img
+        src="/assets/imgs/character_1_happy.png"
+        alt="teacher"
+        class="center"
+        style="width: 10rem"
+      />
+      <img
+        src="/assets/imgs/character_2_happy.png"
+        alt="teacher"
+        class="center"
+        style="width: 10rem"
+      />
+      <img
+        src="/assets/imgs/character_3_happy.png"
+        alt="teacher"
+        class="center"
+        style="width: 10rem"
+      />
     </div>
+
     <div class="container">
+      <div class="workshop-wrapper">
+        <a href="/index.html">Speel het spel hier</a>
+        <div class="content-block">
+          <p>
+            We gaan een eigen versie van flappy bird maken<br />
+            We gaan kunnen kiezen uit verschillende characters en proberen een
+            zo hoog mogelijke scoren te halen
+          </p>
 
-        <div class="workshop-wrapper">
-            <img class="logo" src="./images/logo.png" alt="Logo Arteveldehogeschool Gent">
-            <div class="content-block">
-                <p>We gaan een interactief soundboard maken!<br>
-                    We kunnen er korte grappige samples kunnen afspelen, èn er ook opnemen, om die vervolgens toe te
-                    voegen.</p>
+          <img
+            class="screenshot"
+            src="assets/imgs/tutorial_example.gif"
+            alt="Screenshot Soundboard"
+          />
 
-                <img class="screenshot" src="./images/screenshot.png" alt="Screenshot Soundboard">
+          <p>Daarvoor hebben we drie codetalen nodig</p>
+          <ul>
+            <li>
+              <span class="highlight">HTML </span>
+            </li>
+            <li>
+              <span class="highlight">CSS </span>
+            </li>
+            <li>
+              <span class="highlight">JavaScript</span>
+            </li>
+          </ul>
 
-                <p>Daarvoor hebben we drie codetalen nodig</p>
-                <ul>
-                    <li>
-                        <span class="highlight">HTML </span>
-                    </li>
-                    <li>
-                        <span class="highlight">CSS </span>
-                    </li>
-                    <li>
-                        <span class="highlight">JavaScript</span>
-                    </li>
-                </ul>
-
-                <p>Geen paniek, we houden de code eenvoudig, maar maken wel iets superinteractief!</p>
-                <div class="content-block">
-                    <div class="container">
-                        <article id="step-1">
-                            <h2 class="h3">STAP 1 - MAPPEN EN BESTANDEN</h2>
-                            <div class="htmluitleg">
-                                We hebben een code-editor nodig. In de workshop gebruiken we <a target="_blank"
-                                    href="https://code.visualstudio.com/">Visual Studio Code.</a>
-                            </div>
-                            <ul>
-                                <!-- TODOS -->
-                                <li>
-                                    <strong>1.1</strong> Maak een nieuwe map aan (vb op je bureaublad) en geef als naam
-                                    <code class="highlight">soundboard</code><br>
-                                    <img class="sc" src="./images/1.1-folder-aanmaken.png" alt="Map aanmaken">
-                                </li>
-                                <li>
-                                    <strong>1.2</strong> Open het programma <a target="_blank"
-                                        href="https://code.visualstudio.com/">Visual Studio Code.</a> en open de folder
-                                    die je zopas aangemaakt hebt.<br>
-                                    <img class="sc" src="./images/1.2-folder-openen.png" alt="VS Code Folder">
-                                </li>
-                                <li>
-                                    <strong>1.3</strong> Bouw onderstaande mappen- en bestandenstructuur aan
-                                    <img class="sc" src="./images/1.3-mappenstructuur.png"
-                                        alt="VS Code Folder Structure">
-                                </li>
-                                <!-- 
-                                <li>
-                                    <strong>1.4</strong> Installeer de live server extensie in Visual Studio Code
-                                    <img class="sc" src="./images/1.4-live-server.png" alt="VS Code Live Server">
-                                </li>
-                                -->
-                                <li>
-                                    <strong>1.5</strong> Start de live server door rechtsonder de blauwe balk te klikken
-                                    op <span class="highlight">Go Live</span><br>
-                                    Jouw standaard browser zal nu gestart worden en je zal een blanco webpagina zien!
-                                </li>
-
-                                <li><span class="highlight">GREAT SUCCESS</span></li>
-                            </ul>
-                        </article>
-                        <article id="step-2">
-                            <h2 class="h3">STAP 2 - HTML &amp; CSS</h2>
-                            <div class="htmluitleg">
-                                Tijd om te coderen, zodat we meer te zien krijgen dan een witte webpagina!
-                            </div>
-                            <ul>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>2.1</strong> Kopieer onderstaande code in jouw
-                                    <code>index.html</code>-bestand. Bewaar vervolgens dat bestand.<br>
-                                    <script async src="//jsfiddle.net/fredroeg/c1uLx8bv/19/embed/html/dark/"></script>
-                                    Dit is een basis-structuur waarin we verder werken.
-                                </li>
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>2.2</strong> Kopieer onderstaande code in jouw
-                                    <code>main.css</code>-bestand. Bewaar vervolgens dat bestand.<br>
-                                    <script async src="//jsfiddle.net/fredroeg/c1uLx8bv/17/embed/css/dark"></script>
-                                    Dit bevat alvast een aantal basisstijlen die we later zullen nodig hebben voor de
-                                    look &amp; feel van onze app.
-                                </li>
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>2.3</strong> Bekijk het resultaat in de browser (de url is
-                                    hoogstwaarschijnlijk: <a
-                                        href="http://127.0.0.1:5500/">http://127.0.0.1:5500/</a>).<br>
-                                    Als alles goed is, ziet het er nu zo uit. Een volledig gekleurd vlak.<br>
-                                    <script async src="//jsfiddle.net/fredroeg/c1uLx8bv/4/embed/result/dark"></script>
-                                </li>
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>2.4</strong> Laten we het eens van kleur veranderen. Hiervoor moeten we de
-                                    kleurwaarde veranderen.
-                                    Zoek naar <code> background-color: #07192f;</code> en verander <code>#07192f;</code>
-                                    naar bijvoorbeeld <code>tomato;</code>
-                                    De achtergrond is nu tomaatkleurig.<br>
-                                    <!-- <script async src="//jsfiddle.net/fredroeg/c1uLx8bv/5/embed/result/dark"></script> -->
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>2.5</strong> We hebben nu wat inhoud nodig voor onze webpagina.<br>
-                                    Voeg onderstaande twee elementen toe, en plaats ze tussen de openings <code>&lt;body
-                                        id="background"&gt;</code>-tag en sluitings <code>&lt;/body&gt;</code>-tag
-                                    <br><code class="block">
-                                        &lt;nav id="themenav"&gt;&lt;/nav&gt;<br>
-                                        &lt;div id="soundboard"&gt;&lt;/div&gt;
-                                    </code><br>
-                                    Alles is nu in gereedheid om het soundboard te initialiseren!
-                                </li>
-                            </ul>
-                        </article>
-                        <article id="step-3">
-                            <h2 class="h3">STAP 3 - INTERACTIVITEIT MET JAVASCRIPT</h2>
-                            <div class="htmluitleg">
-                                <code>hello world</code>
-                            </div>
-                            <ul>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>3.1</strong> Eerst en vooral moeten we de link leggen naar het
-                                    JavaScript-bestand.<br>
-                                    Voeg deze regel code toe, onderaan net voor de sluitings-body-tag.<br>
-                                    <code>&lt;script src=&quot;./js/app.js&quot;&gt;&lt;/script&gt;</code>
-                                </li>
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>3.3</strong> Ga naar het bestand <code>app.js</code> en zet er het volgende
-                                    in:<br>
-                                    <code>alert('Hello world')</code><br>
-                                    Bewaar het bestand en kijk wat er in de browser gebeurt (als je deze herlaadt)
-                                    <img class="sc" src="./images/3.3-js.png" alt="VS Code Folder Structure">
-                                </li>
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>3.3</strong> Als het werkt, mag je de regel terug wissen, we weten nu dat
-                                    ons JavaScript-bestand uitgevoerd wordt :)
-                                </li>
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>3.4</strong> <span class="highlight">OPTIONEEL - COOL BACKGROUND TIME</span><br>
-                                    <ul>
-                                        <li>
-                                            Voeg nog een tweede javascript-bestand <code>background.js</code> toe, waar we zullen zorgen voor een
-                                            dynamische, interactieve achtergrond, met behulp van framework <a href="https://p5js.org/" target="_blank">p5.js</a>
-                                        </li>
-                                        <li>
-                                            Kopieer onderstaande code om van start te gaan met het framework p5
-                                            <script async src="//jsfiddle.net/fredroeg/w4Lseyfb/6/embed/js/dark"></script>
-                                        </li>
-                                        <li>
-                                            Vraag raad hoe je randomness kan toevoegen
-                                            <script async src="//jsfiddle.net/fredroeg/w4Lseyfb/9/embed/result/dark"></script>
-                                            <br><br><br><br><br>
-                                        </li>
-                                    </ul>
-                                    <!--
-                                    <ul>
-                                        <li>
-                                            Surf naar <a href="https://www.vantajs.com/"
-                                                target="_blank">https://www.vantajs.com/</a> en kies een van de leuke
-                                            effecten uit…<br>
-                                            Speel gerust met de eigenschappen tot je helemaal tevreden bent.<br>
-                                            Kopieer de volledige <code>code-</code>block van die site, en plak die net
-                                            onder je vorige script-tag
-                                            <br><br>
-                                            <img class="sc" src="./images/3.4-copy-code.png" alt="Vanta JS">
-                                            <br><br>
-
-                                        </li>
-                                        <li>
-                                            <span class="highlight">LET OP</span>
-                                            We moeten handmatig de url naar <span
-                                                class="highlight">three.r119.min.js</span> en het effect <span
-                                                class="highlight">vanta.dots.min.js</span> leggen.
-                                        </li>
-                                        <li>
-                                            Dat doe je door de achterliggende links via de website van daarnet te
-                                            kopiëren en deze te vervangen…<br> <em>(als je klikt op bijvoorbeeld <span
-                                                    class="highlight">three.r119.min.js</span>, dan zal de link openen
-                                                in een nieuw tabblad, dat kan je die link/url dan weer kopiëren uit de
-                                                adresbalk.</em><br>
-                                        </li>
-                                        <li>
-                                            Je html-code zal er nu ongeveer zo uitzien
-                                            <script async src="//jsfiddle.net/fredroeg/c1uLx8bv/13/embed/html"></script>
-                                        </li>
-                                        <li>
-                                            Verander nu <code>"#your-element-selector"</code> naar
-                                            <code>"#background</code> en kijk wat er gebeurt in de browser!<br>
-                                            <script async src="//jsfiddle.net/fredroeg/c1uLx8bv/16/embed/result/dark">
-                                            </script>
-                                        </li>
-                                    </ul>
-                                </li>
-                                -->
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>3.5</strong> <span class="highlight">SOUNDBOARD TIME</span><br>
-                                    Voeg nogmaals twee script-tags toe aan jouw html-bestand (voor de script-tag die
-                                    linkt naar app.js):<br>
-                                    <code class="block">
-                                        &lt;script
-                                        src=&quot;https://nerdland.cmsdevelopment.be/assets/soundboard-app.js&quot;&gt;&lt;/script&gt;<br>
-                                        &lt;script
-                                        src=&quot;https://nerdland.cmsdevelopment.be/assets/soundboard-recorder.js&quot;&gt;&lt;/script&gt;
-                                    </code><br>
-                                    <em>PS, vergeet je bestand niet te bewaren!</em>
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>3.6</strong>
-                                    Ga naar app.js-bestand en voeg deze twee regels code toe<br>
-                                    <code class="block">
-                                        const activeThemes = [];<br>
-                                        soundboard.init(activeThemes);
-                                    </code><br>
-                                    Bewaar het bestand en kijk in de browser of er iets verschijnt :).
-                                    <img class="sc" src="./images/3.6-soundboard.png" alt="Soundboard">
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    We krijgen nu <strong>alle categoriëen</strong> terug, dat zijn er heel wat, we kunnen hier beter in filteren, zodat we enkel de soundboards krijgen die we boeiend vinden.
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>3.7</strong>
-                                    Je kan specifieke categorieën aangeven door die toe te voegen aan de <code>array</code><br>
-                                    bijvoorbeeld: <br>
-                                    <code>
-                                        const activeThemes = ['90s', 'ingeborg'];
-                                    </code>
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    Stel dat we de thema's nog niet zouden kennen, kunnen we deze ook vooraf ophalen via volgende API-url<br>
-                                    <code>https://start-to-code.cmsdevelopment.be/list.php</code>
-                                </li>
-                                <li>
-                                    We gaan die <em>dynamische aanpak</em> in de workshop toepassen via de 
-                                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">Fetch API</a><br>
-                                    <code class="block">
-                                        fetch('http://example.com/movies.json')<br>
-                                        &nbsp;&nbsp;.then(response => response.json())<br>
-                                        &nbsp;&nbsp;.then(data => console.log(data));
-                                    </code>
-
-                                </li>
-                            </ul>
-                        </article>
-                        <article id="step-4">
-                            <h2 class="h3">STAP 4 - VOEG JE EIGEN SAMPLES TOE!</h2>
-                            <div class="htmluitleg">
-                                <code>wetenschap is tof!</code>
-                            </div>
-                            <ul>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>4.1</strong> Laten we een <strong>opname-bar</strong> toevoegen, dan kunnen
-                                    we deel uitmaken van het soundboard!<br>
-                                    We zullen deze eerst structureel opbouwen, via het html-bestand.<br>
-                                    Voeg onderstaande code toe<br>
-                                    <p><code class="block"> 
-                                            &lt;div id=&quot;recordbar&quot;&gt;<br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id=&quot;name&quot; type=&quot;text&quot;
-                                            class=&quot;form-control&quot; placeholder=&quot;naam&quot;&gt;<br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id=&quot;title&quot; type=&quot;text&quot;
-                                            class=&quot;form-control&quot; placeholder=&quot;titel&quot;&gt;<br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;button id=&quot;record&quot; class=&quot;btn
-                                            btn-record&quot;&gt;Start opname&lt;/button&gt;<br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;button id=&quot;upload&quot; class=&quot;btn
-                                            btn-upload&quot;&gt;Upload geluid&lt;/button&gt;<br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;section
-                                            id=&quot;player&quot;&gt;&lt;/section&gt;<br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p id=&quot;message&quot;&gt;&lt;/p&gt;<br>
-                                            &lt;/div&gt;
-                                        </code></p>
-                                    <p>Deze ziet er zo uit:</p>
-                                    <img class="sc" src="./images/4.1-opnamebar.png" alt="Record Bar">
-
-                                </li>
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>4.2</strong> We laten deze nu werken door enerzijds alle nodige elementen te
-                                    selecteren:<br>
-                                    (naam, titel, opnameknop, uploadknop, player, boodschap)<br>
-                                    en anderzijds functionaliteit toe te voegen aan elk element.
-                                </li>
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>4.3</strong> Selecteren van elk element in <code>app.js</code>
-                                    <script async src="//jsfiddle.net/fredroeg/dt3cz4rk/embed/js/dark"></script>
-                                </li>
-
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>4.4</strong> <span class="highlight">Initialiseer de opnamebar! </span> Nu
-                                    gaan we de microfoon-recorder inschakelen, en die laten werken als er op start
-                                    geklikt wordt.<br>
-                                    Als men nadien klikt op de upload-knop, moet er een upload-functie in gang schieten,
-                                    die we dadelijk aanvullen.
-                                    <script async src="//jsfiddle.net/fredroeg/dt3cz4rk/6/embed/js/dark"></script>
-                                </li>
-
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>4.5</strong> En dan... tot slot... de inhoud van de uploadAction-functie<br>
-                                    <script async src="//jsfiddle.net/fredroeg/dt3cz4rk/12/embed/js/dark"></script>
-                                    <p>
-                                        <span class="highlight">Wat gebeurt er?</span>
-                                        <ul>
-                                            <li>We geven de locatie waarnaar het mag geupload worden mee</li>
-                                            <li>We sturen de naam en de titel mee</li>
-                                            <li>Er wordt geupload met alle gegevens</li>
-                                            <li>We geven de boodschap weer die we terugkrijgen van de server</li>
-                                            <li>We resetten de recorder</li>
-                                            <li>We halen de nieuwe samples op!</li>
-                                        </ul>
-                                    </p>
-                                </li>
-
-                                <li style="margin-bottom: 1rem;">
-                                    <h2>GREAT SUCCESS</h2>
-                                    <p>Time to test!</p>
-                                </li>
-                            </ul>
-                        </article>
-                    </div>
+          <p>
+            Geen paniek, we houden de code eenvoudig, maar maken wel iets
+            superinteractief!
+          </p>
+          <div class="content-block">
+            <div class="container">
+              <article id="step-1">
+                <h2 class="h3">STAP 1 - MAPPEN EN BESTANDEN</h2>
+                <div class="htmluitleg">
+                  We hebben een code-editor nodig. In de workshop gebruiken we
+                  <a target="_blank" href="https://code.visualstudio.com/"
+                    >Visual Studio Code.</a
+                  >
                 </div>
+                <div class="htmluitleg">
+                  Dit is de mappenstructuur en de nodige bestanden die je gaat
+                  nodig hebben voor het project vloeiend te laten verlopen
+                  <br />
+                  De foto's zijn verkrijgbaar op onze github voor de mensen die
+                  willen:
+                  <a
+                    href="https://github.com/pgmgent-atwork2/project-1-workshop-start-2-code-daria-arno/tree/main/assets/imgs"
+                    >Github</a
+                  >. <br />
+                  Je kan altijd eigen images gebruiken maar zorg ervoor dat de
+                  namen hetzelfde zijn als in de structuur hieronder.
+                </div>
+                <ul>
+                  <li>
+                    <span class="highlight">index.html</span>
+                  </li>
+                  <li>
+                    <span class="highlight">js (folder)</span>
+                    <ul>
+                      <li>
+                        <span class="highlight">main.js</span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="highlight">css (folder)</span>
+                    <ul>
+                      <li>
+                        <span class="highlight">main.css</span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="highlight">assets (folder)</span>
+                    <ul>
+                      <li>
+                        <span class="highlight">imgs (folder)</span>
+                        <ul>
+                          <li>
+                            <span class="highlight">bg.png</span>
+                          </li>
+                          <li>
+                            <span class="highlight">bottomPillar.png</span>
+                          </li>
+                          <li>
+                            <span class="highlight">character_1_happy.png</span>
+                          </li>
+                          <li>
+                            <span class="highlight">character_1_sad.png</span>
+                          </li>
+                          <li>
+                            <span class="highlight">character_2_happy.png</span>
+                          </li>
+                          <li>
+                            <span class="highlight">character_2_sad.png</span>
+                          </li>
+                          <li>
+                            <span class="highlight">character_3_happy.png</span>
+                          </li>
+                          <li>
+                            <span class="highlight">character_3_sad.png</span>
+                          </li>
+                          <li>
+                            <span class="highlight">topPillar.png</span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <span class="highlight">sounds (folder)</span>
+                        <ul>
+                          <li>
+                            <span class="highlight">coin.mp3</span>
+                          </li>
+                          <li>
+                            <span class="highlight">game-over.mp3</span>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
 
+                  <li><span class="highlight">GREAT SUCCESS</span></li>
+                </ul>
+              </article>
+              <article id="step-2">
+                <h2 class="h3">STAP 2 - HTML &amp; CSS</h2>
+                <div class="htmluitleg">
+                  Tijd om te coderen, zodat we meer te zien krijgen dan een
+                  witte webpagina!
+                </div>
+                <ul>
+                  <li style="margin-bottom: 1rem">
+                    <strong>2.1</strong> Begin door je index.html de startcode
+                    te geven. Je doet dit door "!" te typen en dan enter te
+                    drukken. Of je kopieert de onderstaande code. <br />
+                    <script
+                      async
+                      src="//jsfiddle.net/testetsths/sqprwztf/embed/html/"
+                    ></script>
+                    Dit is een basis-structuur waarin we verder werken.
+                  </li>
+
+                  <li style="margin-bottom: 1rem">
+                    <strong>2.2</strong> Voeg nu een canvas toe, we hebben dit
+                    nodig om grafisch te kunnen tekenen op de webpagina. <br />
+                    Zet dit tussen de <strong>tussen de body tags</strong><br />
+                    <script
+                      async
+                      src="//jsfiddle.net/testetsths/e91nv4ho/5/embed/html/"
+                    ></script>
+                  </li>
+
+                  <li style="margin-bottom: 1rem">
+                    <strong>2.3</strong> Voeg audio tags toe met het juiste pad
+                    naar je mp3 files die je wil gebruiken. <br />
+                    <script
+                      async
+                      src="//jsfiddle.net/testetsths/mLqg3ka4/embed/html/"
+                    ></script>
+                  </li>
+
+                  <li style="margin-bottom: 1rem">
+                    <strong>2.4</strong> Als laatste, voeg de selectie knoppen
+                    toe voor de karakters onder de canvas.<br />
+                    <script
+                      async
+                      src="//jsfiddle.net/testetsths/werc7bm6/4/embed/html/"
+                    ></script>
+                  </li>
+
+                  <li style="margin-bottom: 1rem">
+                    <strong>2.5</strong> Kopieer onderstaande code in jouw
+                    <code>main.css</code>-bestand. Bewaar vervolgens dat
+                    bestand.<br />
+                    <script
+                      async
+                      src="//jsfiddle.net/arnoboenders/tyhrc6zg/8/embed/css/"
+                    ></script>
+                    Dit bevat alvast een aantal basisstijlen die we later zullen
+                    nodig hebben voor de look &amp; feel van onze app.
+                  </li>
+
+                  <li style="margin-bottom: 1rem">
+                    <strong>2.6</strong> Bekijk het resultaat in de browser (de
+                    url is hoogstwaarschijnlijk:
+                    <a href="http://127.0.0.1:5500/">http://127.0.0.1:5500/</a
+                    >).<br />
+                    Als alles goed is, ziet het er nu zo uit. Een gekleurd vak
+                    met knoppen onder met normaal de juiste foto's / characters
+                    in de knoppen.<br />
+                    <strong style="color: red"
+                      >Als dit niet het geval is controleer dan zeker dat je de
+                      images hebt en ze de juiste naam hebt gegeven.</strong
+                    >
+                    <br />
+                    <script
+                      async
+                      src="//jsfiddle.net/arnoboenders/tyhrc6zg/8/embed/result/"
+                    ></script>
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>2.7</strong> Laten we het eens van kleur veranderen.
+                    Hiervoor moeten we de kleurwaarde veranderen. Zoek naar
+                    <code> background-color: cornflowerblue;</code> en verander
+                    <code>cornflowerblue;</code> naar bijvoorbeeld
+                    <code>tomato;</code> De achtergrond is nu tomaatkleurig.<br />
+                    <script
+                      async
+                      src="//jsfiddle.net/arnoboenders/tyhrc6zg/9/embed/result/"
+                    ></script>
+                  </li>
+                </ul>
+              </article>
+              <article id="step-3">
+                <h2 class="h3">STAP 3 - INTERACTIVITEIT MET JAVASCRIPT</h2>
+                <div class="htmluitleg">
+                  <code>hello world</code>
+                </div>
+                <ul>
+                  <li style="margin-bottom: 1rem">
+                    <strong>3.1</strong> Eerst en vooral moeten we de link
+                    leggen naar het JavaScript-bestand.<br />
+                    Voeg deze regel code toe, onderaan net voor de
+                    sluitings-body-tag.<br />
+                    <code
+                      >&lt;script
+                      src=&quot;./js/main.js&quot;&gt;&lt;/script&gt;</code
+                    >
+                  </li>
+
+                  <li style="margin-bottom: 1rem">
+                    <strong>3.2</strong> Ga naar het bestand
+                    <code>main.js</code> en zet er het volgende in:<br />
+                    <script
+                      async
+                      src="//jsfiddle.net/arnoboenders/tyhrc6zg/12/embed/js/"
+                    ></script>
+                    Dit is om alle variabelen te declareren die we gaan nodig
+                    hebben voor de rest van het project
+                  </li>
+
+                  <li style="margin-bottom: 1rem">
+                    <strong>3.3</strong> Nu voegen we een functie toe die de
+                    nodige variabelen waarden gaat geven en ze inladen.
+                    <script
+                      async
+                      src="//jsfiddle.net/arnoboenders/tyhrc6zg/15/embed/js/"
+                    ></script>
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>3.4</strong> Vervolgens gaan we de update functie
+                    toevoegen. <br />
+                    Dit is een vrij lange functie. De nodige info staat altijd
+                    bij de code bij voor extra informatie. <br />
+                    Wat deze functie gaat doen is kijken bij elke update dat er
+                    gebeurd (als er op een knop geduwd wordt om te springen) of
+                    het character iet heeft geraakt of niet. <br />
+                    Als dit zo is gaat hij de variabele <code>gameOver</code> op
+                    true zetten.<br />
+                    Als hij niets geraakt heeft dan gaat er een geluid worden
+                    afgespeeld.
+                    <script
+                      async
+                      src="//jsfiddle.net/arnoboenders/tyhrc6zg/17/embed/js/"
+                    ></script>
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>3.5</strong> De toren plaatsende functie. <br />
+                    Deze functie gaat de torens plaatsen op een willekeurige
+                    plaats en de juiste afstand van elkaar. <br />
+                    <script
+                      async
+                      src="//jsfiddle.net/testetsths/d7hokb46/embed/js/"
+                    ></script>
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>3.6</strong> De volgende functie is om de character
+                    te laten bewegen.<br />
+                    Hier gaan we eerst en vooral de knoppen die gebruikt gaan
+                    worden om te springen bevestigen. <br />
+                    We gaan in deze functie ook de hoogte van het springen
+                    bevestigen met de velocity en de rotatie van het character
+                    toevoegen zodat hij een vallend effect heeft. <br />
+                    Op het einde van de functie zetten we ook een reset zodat je
+                    het spel opnieuw kan starten door een van de gekozen knoppen
+                    in te duwen. De reset zorgt ervoor dat de geluiden worden
+                    herstart en dat het character op de begin positie wordt
+                    geplaatst.
+                    <script
+                      async
+                      src="//jsfiddle.net/arnoboenders/tyhrc6zg/20/embed/js/"
+                    ></script>
+                  </li>
+                  <li style="margin-bottom: 1rem">
+                    <strong>3.7</strong> Dit is de laatste functie. De bedoeling
+                    is om te detecteren wanneer je een pillaar raakt.<br />
+
+                    <script
+                      async
+                      src="//jsfiddle.net/testetsths/e5hrtobz/embed/js/"
+                    ></script>
+                  </li>
+                </ul>
+              </article>
             </div>
-            <!-- EIND OPGAVE-->
-
+          </div>
         </div>
-        <footer>
-            <p>&copy; Arteveldehogeschool Gent <br>2022</p>
-            <br><br>
-        </footer>
-
-
+      </div>
+      <footer>
+        <p>&copy; Daria & Arno <br />2024</p>
+        <br /><br />
+      </footer>
     </div>
-
-    <!-- <script src="./scripts/snow.js"></script> -->
-
-
-</body>
-
+  </body>
 </html>
